@@ -1,16 +1,16 @@
 {
-  "name": "checker-agent",
-  "owner": {
-    "name": "Tooensure"
-  },
-  "interface": {
-    "displayName": "Checker Agent"
-  },
-  "plugins": [
-    {
-      "name": "checker",
-      "source": "./plugins/checker",
-      "description": "Independently evaluate a Maker receipt against the plan and its evidence."
-    }
-  ]
+    "name":  "checker-agent",
+    "owner":  {
+                  "name":  "Tooensure"
+              },
+    "interface":  {
+                      "displayName":  "Checker Agent"
+                  },
+    "plugins":  [
+                    {
+                        "name":  "pmcro-checker",
+                        "source":  "./plugins/checker",
+                        "description":  "PMCR-O Checker — independently verifies Maker output against the plan and records exactly one PASS/LOOP/HALT verdict."
+                    }
+                ]
 }

@@ -1,6 +1,9 @@
 {
     "$schema":  "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-    "name":  "checker",
+    "name":  "pmcro-checker",
     "version":  "0.1.0",
-    "description":  "Independently evaluate a Maker receipt against the plan and its evidence."
+    "description":  "PMCR-O Checker — independently verifies Maker output against the plan and records exactly one PASS/LOOP/HALT verdict.",
+    "interface":  {
+                      "displayName":  "PMCR-O Checker"
+                  }
 }
