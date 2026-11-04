@@ -6,7 +6,7 @@ param(
 $ErrorActionPreference = 'Stop'
 $utf8 = New-Object System.Text.UTF8Encoding($false)
 $src = Get-ChildItem (Join-Path $Repo 'plugins') -Directory | Select-Object -First 1
-$meta = Get-Content (Join-Path $src.FullName 'plugin.json') -Raw | ConvertFrom-Json
+$meta = Get-Content (Join-Path $src.FullName 'plugin.json') -Raw -Encoding UTF8 | ConvertFrom-Json
 $stage = Join-Path $env:TEMP ("pkg-stage-" + [guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $stage | Out-Null
 $manifest = [ordered]@{ '$schema' = 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json'; name = $meta.name; version = $meta.version; description = $meta.description }
@@ -21,7 +21,7 @@ if ($skills.Count -ne 1) { $problems += 'plugin must contain exactly one skill' 
 foreach ($s in $skills) { if ((Get-Content "$($s.FullName)\SKILL.md" -Raw) -notmatch "(?m)^name: $($s.Name)\s*$") { $problems += "SKILL.md name does not match folder $($s.Name)" } }
 if ($problems.Count) { $problems | ForEach-Object { Write-Error $_ -ErrorAction Continue }; Remove-Item $stage -Recurse -Force; exit 2 }
 New-Item -ItemType Directory -Force $OutDir | Out-Null
-$zipPath = Join-Path $OutDir ("$($meta.name)-$($meta.version).zip")
+$zipPath = Join-Path $OutDir "checker-agent.zip"
 if (Test-Path $zipPath) { Remove-Item $zipPath -Force }
 Add-Type -AssemblyName System.IO.Compression
 Add-Type -AssemblyName System.IO.Compression.FileSystem

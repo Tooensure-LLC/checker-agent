@@ -49,3 +49,7 @@ Own only CHECK. Never perform or repair the Maker work. Do not claim independenc
 - [API and Trail contract](references/api-grpc-and-trail-contract.md)
 - [Input schema](references/input.schema.json) and [output schema](references/output.schema.json)
 - [Request template](assets/request.json)
+
+## Pattern role
+
+Independent evaluator in the evaluator-optimizer loop. It judges the Maker receipt against the plan in a fresh read-only context and records exactly one PASS, LOOP or HALT verdict. LOOP returns work to Maker within the depth limit.
