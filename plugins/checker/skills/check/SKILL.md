@@ -50,6 +50,14 @@ Own only CHECK. Never perform or repair the Maker work. Do not claim independenc
 - [Input schema](references/input.schema.json) and [output schema](references/output.schema.json)
 - [Request template](assets/request.json)
 
+## Quality bar
+
+- Judge only against the plan's acceptance criteria and observable evidence. Write one `checks` entry per criterion that states the criterion, the result and the evidence.
+- PASS: every criterion is met by evidence you can repeat.
+- LOOP: at least one criterion is unmet but fixable within the same plan and authorized scope. Name each failing criterion and the evidence that would satisfy it, so a revision can target it.
+- HALT: the work is unsafe, out of scope, unauthorized or cannot be verified. A retry will not fix it.
+- Never fix, retry or call Maker. Return the verdict to the Orchestrator, which owns any revision.
+
 ## Pattern role
 
-Independent evaluator called only by the Orchestrator (hub-and-spoke). It judges the Maker receipt against the plan in a fresh read-only context and records exactly one PASS, LOOP or HALT verdict. A non-PASS verdict stops the cycle; it does not call Maker.
+Independent evaluator called only by the Orchestrator (hub-and-spoke). It judges the Maker receipt against the plan in a fresh read-only context and records exactly one PASS, LOOP or HALT verdict. A LOOP verdict goes back to the Orchestrator, which may start a bounded, separately authorized revision; the Checker never calls Maker.
