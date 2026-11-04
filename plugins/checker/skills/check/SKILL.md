@@ -52,4 +52,4 @@ Own only CHECK. Never perform or repair the Maker work. Do not claim independenc
 
 ## Pattern role
 
-Independent evaluator in the evaluator-optimizer loop. It judges the Maker receipt against the plan in a fresh read-only context and records exactly one PASS, LOOP or HALT verdict. LOOP returns work to Maker within the depth limit.
+Independent evaluator called only by the Orchestrator (hub-and-spoke). It judges the Maker receipt against the plan in a fresh read-only context and records exactly one PASS, LOOP or HALT verdict. A non-PASS verdict stops the cycle; it does not call Maker.
