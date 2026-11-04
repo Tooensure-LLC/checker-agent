@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "checker checker.verdict frame",
+  "type": "object",
+  "required": [
+    "frame_id",
+    "trail_id",
+    "cycle_id",
+    "seq",
+    "role",
+    "kind",
+    "parent_id",
+    "prev_hash",
+    "hash",
+    "status",
+    "payload"
+  ],
+  "properties": {
+    "frame_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trail_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cycle_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "seq": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "role": {
+      "const": "checker"
+    },
+    "kind": {
+      "const": "checker.verdict"
+    },
+    "parent_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "prev_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "open",
+        "complete",
+        "blocked",
+        "halted"
+      ]
+    },
+    "payload": {
+      "type": "object",
+      "required": [
+        "raw_seed",
+        "plan_ref",
+        "make_receipt",
+        "verdict",
+        "checks",
+        "independent"
+      ],
+      "properties": {
+        "raw_seed": {
+          "type": "string",
+          "minLength": 1
+        },
+        "plan_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "make_receipt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "verdict": {
+          "enum": [
+            "PASS",
+            "LOOP",
+            "HALT"
+          ]
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "result",
+              "evidence_ref"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "result": {
+                "type": "string"
+              },
+              "evidence_ref": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "independent": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

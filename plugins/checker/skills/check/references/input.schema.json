@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "/checker:check typed input",
+  "type": "object",
+  "required": [
+    "raw_seed",
+    "plan_ref",
+    "make_receipt"
+  ],
+  "properties": {
+    "raw_seed": {
+      "type": "string",
+      "minLength": 1
+    },
+    "plan_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "make_receipt": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

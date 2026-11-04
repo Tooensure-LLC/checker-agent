@@ -1,0 +1,17 @@
+{
+  "format": "pmcro.role-agent/v1",
+  "id": "checker",
+  "marketplace": "checker-agent",
+  "role": "checker",
+  "phase": "CHECK",
+  "command": "/checker:check",
+  "pluginMention": "[@checker](plugin://checker@checker-agent)",
+  "skillId": "checker:check",
+  "entrypoint": "plugins/checker/skills/check/SKILL.md",
+  "inputSchema": "plugins/checker/skills/check/references/input.schema.json",
+  "outputSchema": "plugins/checker/skills/check/references/output.schema.json",
+  "apiReplySchema": "schemas/phase-reply.schema.json",
+  "trailKind": "checker.verdict",
+  "separateContext": true,
+  "registrationState": "candidate"
+}

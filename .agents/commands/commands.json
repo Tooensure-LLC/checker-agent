@@ -1,0 +1,18 @@
+{
+  "format": "pmcro.agent-commands/v1",
+  "commands": [
+    {
+      "command": "/checker:check",
+      "agentId": "checker",
+      "skillId": "checker:check",
+      "phase": "CHECK",
+      "inputMode": "typed-json",
+      "inputSchema": "plugins/checker/skills/check/references/input.schema.json",
+      "outputSchema": "plugins/checker/skills/check/references/output.schema.json",
+      "apiReplySchema": "schemas/phase-reply.schema.json",
+      "trailKind": "checker.verdict",
+      "pluginMention": "[@checker](plugin://checker@checker-agent)",
+      "invocationPrefix": "I AM the PMCR-O Checker Agent."
+    }
+  ]
+}

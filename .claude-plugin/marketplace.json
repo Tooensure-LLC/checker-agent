@@ -1,0 +1,16 @@
+{
+  "name": "checker-agent",
+  "owner": {
+    "name": "Tooensure"
+  },
+  "metadata": {
+    "description": "Marketplace for the PMCR-O checker plugin."
+  },
+  "plugins": [
+    {
+      "name": "checker",
+      "source": "./plugins/checker",
+      "description": "Independently evaluate a Maker receipt against the plan and its evidence."
+    }
+  ]
+}

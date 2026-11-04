@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProjectName PhaseReply protobuf projection",
+  "type": "object",
+  "required": [
+    "verdict",
+    "reason",
+    "evidence_reference"
+  ],
+  "properties": {
+    "verdict": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "evidence_reference": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
